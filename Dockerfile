@@ -1,8 +1,12 @@
-FROM python:3.10
+FROM python:3.11-alpine3.16
 
-ADD . /src
 WORKDIR /src
 
+RUN apk update && apk add --no-cache bash
+
+COPY requirements.txt .
 RUN pip install -r requirements.txt
+
+COPY . .
 
 CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
