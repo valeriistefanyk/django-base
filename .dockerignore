@@ -4,3 +4,5 @@ docker-compose.yml
 __pycache__
 env
 .env
+.idea
+.vscode
